@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>Sistema de Gerenciamento Inteligente</title>
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
+		<h1>Lista de Livros</h1>
+		<table class="highlight">
+			<thead> 
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Editora</th>
+					<th>Genero</th>
+					<th>Ano</th>
+					<th>Autor</th>
+					<th>Sinopse</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="e : ${sgi}">
+					<td th:text="${e.Id}">1</td>
+					<td><a th:href="@{/sgi/{Id}(Id=${e.Id})}"><span th:text="${e.Nome}">2</span></a></td>
+					<td th:text="${e.Editora}">3</td>
+					<td th:text="${e.Genero}">4</td>
+					<td th:text="${e.Ano}">5</td>
+					<td th:text="${e.Autor}">6</td>
+					<td th:text="${e.Sinopse}">7</td>
+					<td>
+						<a th:href="@{/sgi/{Id}/selecionar(Id=${e.Id})}"><i class="material-icons">mode_edit</i></a>
+						<a th:href="@{/sgi/{Id}/remover(Id=${e.Id})}"> <i class="material-icons">delete_forever</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

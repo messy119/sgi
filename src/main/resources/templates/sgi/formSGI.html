@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<title>Sistema de Gerenciamento Inteligente</title>
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
+		<h1>Adicionar Livro</h1>
+		<form action="/sgi" method="post">
+			
+			<div>
+				<input type="hidden" name="id" th:value="${sgi.id}" readonly="readonly">
+			</div>
+			<div>
+				<label>Nome</label><input type="text" name="Nome" th:value="${sgi.Nome}">
+			</div>
+			<div>
+				<label>Editora</label><input type="text" name="Editora" th:value="${sgi.Editora}">
+			</div>
+			<div>
+				<label>Gênero</label><input type="text" name="Genero" th:value="${sgi.Genero}">
+			</div>
+			<div>
+				<label>Ano</label><input type="text" name="Ano" th:value="${sgi.Ano}">
+			</div>
+			<div>
+				<label>Autor</label><input type="text" name="Autor" th:value="${sgi.Autor}">
+			</div>
+			<div>
+				<label>Sinopse</label><input type="text" name="Sinopse" th:value="${sgi.Sinopse}">
+			</div>
+			<div>
+				<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+				<button class="waves-effect waves-light btn" type="reset">Limpar</button>
+			</div>
+
+
+		</form>
+	</div>
+
+</body>
+</html>
